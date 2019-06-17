@@ -25,7 +25,7 @@ Build:
   # Job's artifacts. Artifacts are shared by default.
   artifacts:
      - name: Red rocket built
-       pattern: falcon/red/wings
+       pattern: zipthis/script
 ---
 version: 2
 deployment:
