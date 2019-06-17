@@ -45,3 +45,4 @@ QA:
         destination: /
     - script:
         - echo 'Hello space'
+        - echo ${bamboo.buildNumber}
