@@ -57,3 +57,4 @@ stages:
 #     - script:
 #         - echo 'Hello space'
 #         - echo ${bamboo.buildNumber}
+
