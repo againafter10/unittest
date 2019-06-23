@@ -1,47 +1,60 @@
----
-version: 2
-plan:
-  project-key: MARS
-  key: ROCKET
-  name: Build the rockets
-
-# List of plan's stages and jobs
+project:
+  key: FIR
+  plan:
+    key: SLAYER
+    name: Dragon Slayer Quest
 stages:
-  - Build the rocket stage:
-    - Build
+  - jobs:
+    - scripts:
+      - echo 'Going to slay the dragon, watch me'
+      - sleep 1
+      - echo 'Nailed it'
+# ---
+# version: 2
+# plan:
+#   project-key: MARS
+#   key: ROCKET
+#   name: Build the rockets
 
-#Job definition
-Build:
-  tasks:
-    - script:
-        - mkdir -p falcon/red
-        - echo wings > falcon/red/wings
-        - sleep 1
-        - echo 'Built it'
+# # List of plan's stages and jobs
+# stages:
+#   - Build the rocket stage:
+#     - Build
+
+# #Job definition
+# Build:
+#   tasks:
+#     - script:
+#         - mkdir -p falcon/red
+#         - echo wings > falcon/red/wings
+#         - sleep 1
+#         - echo 'Built it'
    
-  # Job's requirements
-  requirements:
-     - isRocketFuel
-  # Job's artifacts. Artifacts are shared by default.
-  artifacts:
-     - name: Red rocket built
-       pattern: falcon/red/wings
----
-version: 2
-deployment:
-  name: Deploy Rocket
-  source-plan: MARS-ROCKET
+#   # Job's requirements
+#   requirements:
+#      - isRocketFuel
+#   # Job's artifacts. Artifacts are shared by default.
+#   artifacts:
+#      - name: Red rocket built
+#        pattern: zipthis/script
+# ---
+# version: 2
+# deployment:
+#   name: Deploy Rocket
+#   source-plan: MARS-ROCKET
 
-release-naming:
-  next-version-name: 0.${bamboo.buildNumber}
+# release-naming:
+#   next-version-name: 0.${bamboo.buildNumber}
 
-environments:
-  - QA
+# environments:
+#   - QA
 
-QA:
-  tasks:
-    - clean
-    - artifact-download:
-        destination: /
-    - script:
-        - echo 'Hello space'
+# QA:
+#   tasks:
+#     - clean
+#     - artifact-download:
+#         destination: /
+#     - script:
+#         - echo 'Hello space'
+#         - echo ${bamboo.buildNumber}
+
